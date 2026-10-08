@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jason Saavedra · Asesor financiero</title>
+<meta name="description" content="APV, ahorro familiar y planificación para personas en Chile. Agenda una revisión gratis de 15 minutos.">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75,500;75,700;75,900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* Marca «Datos con energía»: Branding Jason Finanzas/2026-09-28_branding-jason-finanzas_manual.md */
+  :root{
+    --jf-navy:#07101f;
+    --jf-card:#0d1b30;
+    --jf-line:rgba(255,255,255,.12);
+    --jf-mint:#3ce6b0;
+    --jf-yellow:#f2cf6b;
+    --jf-white:#ffffff;
+    --jf-soft:rgba(255,255,255,.72);
+    --jf-on-mint:#07101f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--jf-navy);color:var(--jf-white);
+    font-family:"Archivo",system-ui,sans-serif;font-stretch:75%;font-weight:500;
+    font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-stretch:100%}
+  h1,h2,h3{font-weight:900;text-transform:uppercase;line-height:1.02;letter-spacing:.005em}
+  h1{font-size:clamp(40px,11vw,68px)}
+  h2{font-size:clamp(30px,8vw,44px);margin-bottom:18px}
+  h3{font-size:24px;margin-bottom:6px}
+  .hl{background:var(--jf-mint);color:var(--jf-on-mint);padding:0 .14em;display:inline-block;transform:rotate(-1.5deg)}
+  .num{color:var(--jf-yellow)}
+  p+p{margin-top:10px}
+
+  header{padding:22px 0 0}
+  header .wrap{display:flex;justify-content:space-between;align-items:center}
+  header img{height:34px;width:auto}
+  header a.mini{color:var(--jf-mint);font-weight:700;text-decoration:none;font-size:15px}
+
+  .hero{padding:44px 0 40px}
+  .who{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+  .who img{width:64px;height:64px;border-radius:50%;border:3px solid var(--jf-mint);object-fit:cover}
+  .who b{display:block;font-weight:900;font-size:20px;text-transform:uppercase}
+  .who span{color:var(--jf-soft);font-size:14px}
+  .lead{font-size:19px;color:var(--jf-soft);margin:20px 0 28px;max-width:560px}
+
+  .btn{
+    display:inline-block;background:var(--jf-mint);color:var(--jf-on-mint);
+    font-weight:900;text-transform:uppercase;text-decoration:none;
+    font-size:20px;padding:16px 26px;border-radius:14px;letter-spacing:.01em;
+  }
+  .btn:focus-visible,.btn:hover{outline:3px solid var(--jf-yellow);outline-offset:3px}
+  .btn-sub{display:block;margin-top:10px;font-size:13px;color:var(--jf-soft)}
+
+  section{padding:40px 0;border-top:1px solid var(--jf-line)}
+  .grid{display:grid;gap:14px}
+  .card{background:var(--jf-card);border-left:5px solid var(--jf-mint);border-radius:14px;padding:20px 20px 18px}
+  .card p{color:var(--jf-soft)}
+  .card .tag{display:block;font-size:12px;color:var(--jf-mint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+
+  ol.steps{list-style:none;counter-reset:s;display:grid;gap:14px}
+  ol.steps li{counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:start}
+  ol.steps li::before{
+    content:counter(s);font-weight:900;font-size:30px;color:var(--jf-on-mint);background:var(--jf-yellow);
+    width:52px;height:52px;border-radius:12px;display:grid;place-items:center;
+  }
+  ol.steps p{color:var(--jf-soft)}
+
+  .two{display:grid;gap:14px}
+  .list{list-style:none;display:grid;gap:8px}
+  .list li{padding-left:28px;position:relative;color:var(--jf-soft)}
+  .list li::before{position:absolute;left:0;top:0;font-weight:900}
+  .yes li::before{content:"✓";color:var(--jf-mint)}
+  .no li::before{content:"✕";color:rgba(255,255,255,.45)}
+
+  details{background:var(--jf-card);border-radius:12px;padding:16px 18px}
+  details+details{margin-top:10px}
+  summary{cursor:pointer;font-weight:700;font-size:18px}
+  details p{color:var(--jf-soft);margin-top:10px}
+
+  .agenda{text-align:left}
+  .form{display:grid;gap:14px;margin-top:6px}
+  .form label{display:grid;gap:6px;font-weight:700;font-size:15px}
+  .form input,.form select,.form textarea{
+    font:inherit;font-weight:500;font-size:17px;color:var(--jf-white);background:var(--jf-card);
+    border:1px solid var(--jf-line);border-radius:10px;padding:12px 14px;width:100%;
+  }
+  .form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--jf-mint);border-color:transparent}
+  .form .check{display:flex;gap:10px;align-items:flex-start;font-weight:500;color:var(--jf-soft)}
+  .form .check input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--jf-mint)}
+  .form .check a{color:var(--jf-mint)}
+  .form button{border:0;cursor:pointer;justify-self:start}
+  .hp{position:absolute;left:-9999px}
+  .alt{margin-top:18px;color:var(--jf-soft)}
+  .alt a{color:var(--jf-mint)}
+
+  footer{padding:30px 0 48px;border-top:1px solid var(--jf-line);font-size:13px;color:rgba(255,255,255,.55)}
+  footer p+p{margin-top:8px}
+  footer a{color:rgba(255,255,255,.75)}
+
+  @media (min-width:640px){
+    .grid{grid-template-columns:1fr 1fr}
+    .two{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <img src="logo.svg" alt="jason.finanzas">
+    <a class="mini" href="#agenda">Contacto →</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div class="who">
+        <img src="jason.jpg" alt="Jason Saavedra">
+        <div><b>Jason Saavedra</b><span>Asesor financiero · Santiago, Chile</span></div>
+      </div>
+      <h1>Tu plata con <span class="hl">un plan</span>, no con suerte</h1>
+      <p class="lead">Te ayudo a ordenar tu ahorro para la jubilación (APV) y el ahorro para las metas de tu familia, con números claros y sin letra chica escondida.</p>
+      <a class="btn" href="#agenda">Cuéntame tu caso</a>
+      <span class="btn-sub mono">revisión de 15 min · sin costo · sin compromiso</span>
+    </div>
+  </div>
+
+  <section id="servicios">
+    <div class="wrap">
+      <h2>En qué te <span class="hl">ayudo</span></h2>
+      <div class="grid">
+        <div class="card">
+          <span class="tag mono">APV</span>
+          <h3>¿Régimen A o B?</h3>
+          <p>Vemos tu liquidación o tus boletas, tu tramo de impuesto y qué régimen tiene más sentido para ti.</p>
+        </div>
+        <div class="card">
+          <span class="tag mono">APV</span>
+          <h3>Revisión de tu APV actual</h3>
+          <p>Si ya tienes uno: en qué fondo está, cuánto te cobra y si conviene traspasarlo.</p>
+        </div>
+        <div class="card">
+          <span class="tag mono">Ahorro familiar</span>
+          <h3>Metas con fecha y monto</h3>
+          <p>El pie de la casa, los estudios de tus hijos, el cambio de auto: le ponemos número en UF y un plan mensual.</p>
+        </div>
+        <div class="card">
+          <span class="tag mono">Ahorro familiar</span>
+          <h3>Ahorro que se protege</h3>
+          <p>Seguros con ahorro: para que la meta siga en pie aunque a ti te pase algo. Te muestro costos y condiciones antes de firmar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="como">
+    <div class="wrap">
+      <h2>Cómo <span class="hl">trabajo</span></h2>
+      <ol class="steps">
+        <li><div><h3>Revisión de 15 min</h3><p>Te pregunto tu objetivo, tu plazo y cuánto podrías apartar al mes sin apretarte. Gratis.</p></div></li>
+        <li><div><h3>Propuesta con supuestos</h3><p>Si tiene sentido seguir, te muestro alternativas con sus costos, riesgos y supuestos a la vista. Si no te sirve, te lo digo.</p></div></li>
+        <li><div><h3>Acompañamiento</h3><p>Si decides avanzar, lo implementamos juntos y lo revisamos una vez al año.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="para-quien">
+    <div class="wrap">
+      <h2>¿Es <span class="hl">para ti</span>?</h2>
+      <div class="two">
+        <div class="card">
+          <h3>Sí, si…</h3>
+          <ul class="list yes">
+            <li>Tienes ingresos estables, con contrato o con boletas.</li>
+            <li>Quieres partir o mejorar un APV.</li>
+            <li>Estás ahorrando para una meta de 3 años o más.</li>
+            <li>Ganas bien y sientes que pagas mucho impuesto.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>No, si buscas…</h3>
+          <ul class="list no">
+            <li>Ganar rápido o hacer trading.</li>
+            <li>Un crédito o repactar deudas.</li>
+            <li>Dónde dejar plata por pocos meses.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agenda" class="agenda">
+    <div class="wrap">
+      <h2>Cuéntame <span class="hl">tu caso</span></h2>
+      <p class="lead">Déjame tus datos y lo que necesitas. Lo reviso y te contacto yo por el medio que prefieras para coordinar la revisión de 15 minutos.</p>
+      <!-- FormSubmit (aprobado por Jason el 7/10): reenvía cada formulario a su correo. El primer envío pide activación por correo. -->
+      <form action="https://formsubmit.co/jasonsaavedrabarrera@gmail.com" method="POST" class="form">
+        <input type="hidden" name="_subject" value="Nuevo contacto desde la página · jason.finanzas">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://jasonsaavedrabarrera-wq.github.io/jason-finanzas/gracias.html">
+        <p class="hp"><label>No llenar: <input name="_honey" tabindex="-1" autocomplete="off"></label></p>
+        <label>Nombre<input name="nombre" required autocomplete="name"></label>
+        <label>Celular (WhatsApp)<input name="celular" type="tel" required autocomplete="tel" placeholder="+56 9 ..."></label>
+        <label>Correo<input name="correo" type="email" required autocomplete="email"></label>
+        <label>Instagram (opcional)<input name="instagram" placeholder="@usuario"></label>
+        <label>¿Cómo prefieres que te contacte?
+          <select name="medio" required>
+            <option value="">Elige una opción</option>
+            <option>WhatsApp</option><option>Llamada</option><option>Correo</option><option>Instagram</option>
+          </select>
+        </label>
+        <label>Trabajas con…
+          <select name="situacion" required>
+            <option value="">Elige una opción</option>
+            <option>Contrato (liquidación de sueldo)</option><option>Boletas de honorarios</option><option>Ambos</option><option>Otro</option>
+          </select>
+        </label>
+        <label>Renta líquida mensual aproximada
+          <select name="renta" required>
+            <option value="">Elige una opción</option>
+            <option>Menos de $1,5 millones</option><option>$1,5 a $3 millones</option><option>$3 a $5 millones</option><option>Más de $5 millones</option><option>Prefiero no decir</option>
+          </select>
+        </label>
+        <label>¿Qué quieres revisar?
+          <select name="tema" required>
+            <option value="">Elige una opción</option>
+            <option>APV</option><option>Ahorro para una meta</option><option>Ambos</option><option>Otro</option>
+          </select>
+        </label>
+        <label>Cuéntame qué necesitas<textarea name="mensaje" rows="4" required placeholder="Ej: tengo un APV hace años y no sé si está bien; quiero ahorrar para el pie de un depto en 5 años…"></textarea></label>
+        <label class="check"><input type="checkbox" name="acepto" required><span>Acepto que Jason me contacte con estos datos (ver <a href="#privacidad">privacidad</a>).</span></label>
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+      <p class="alt">¿Prefieres escribir directo? <a href="https://ig.me/m/jason.finanzas">Mándame un DM en Instagram</a>.</p>
+    </div>
+  </section>
+
+  <section id="preguntas">
+    <div class="wrap">
+      <h2>Preguntas <span class="hl">frecuentes</span></h2>
+      <details>
+        <summary>¿Cuánto cobras por la asesoría?</summary>
+        <!-- [CONFIRMAR CON JASON] forma de remuneración -->
+        <p>La revisión de 15 minutos no tiene costo para ti y no te compromete a nada.</p>
+      </details>
+      <details>
+        <summary>¿Me vas a vender algo en la primera llamada?</summary>
+        <p>No. La primera conversación es para entender tu caso. Si no hay nada que te convenga, te lo digo.</p>
+      </details>
+      <details>
+        <summary>¿El APV hace que no pague impuestos?</summary>
+        <p>No. Según el régimen, recibes una bonificación del Estado (A) o postergas el impuesto (B). Si retiras antes de pensionarte, hay efectos tributarios. Lo vemos con tu caso.</p>
+      </details>
+      <details>
+        <summary>¿Qué necesito tener a mano?</summary>
+        <p>Una idea de tu sueldo líquido o tus boletas del último tiempo, y si ya tienes APV o algún seguro con ahorro.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer id="privacidad">
+  <div class="wrap">
+    <p><b>Privacidad.</b> Los datos que me entregas (nombre, contacto y respuestas del formulario) los uso solo para contactarte y preparar tu revisión. No los vendo ni los comparto con terceros sin tu autorización. Puedes pedir que los borre escribiendo por DM a @jason.finanzas.</p>
+    <p>Contenido informativo. No constituye recomendación personalizada; cada caso se revisa con sus antecedentes. Los fondos variables no tienen rentabilidad garantizada.</p>
+    <p>© 2026 Jason Saavedra Barrera · <a href="https://www.instagram.com/jason.finanzas/">@jason.finanzas</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
